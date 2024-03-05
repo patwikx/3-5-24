@@ -18,8 +18,6 @@ import { v4 } from 'uuid'
 import {
   CreateMediaType,
 } from './types'
-import { z } from 'zod'
-import { revalidatePath } from 'next/cache'
 import AgencyDetails from '@/components/forms/agency-details'
 
 export const getAuthUserDetails = async () => {
