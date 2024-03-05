@@ -51,8 +51,8 @@ const TagCreator = ({ getSelectedTags, subAccountId, defaultTags }: Props) => {
   const [selectedColor, setSelectedColor] = useState('')
 
   useEffect(() => {
-    getSelectedTags(selectedTags)
-  }, [selectedTags])
+    getSelectedTags(selectedTags);
+  }, [selectedTags, getSelectedTags]);
 
   useEffect(() => {
     if (subAccountId) {

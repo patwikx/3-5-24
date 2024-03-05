@@ -95,20 +95,19 @@ const TicketForm = ({ getNewTicket, laneId, subaccountId }: Props) => {
         name: defaultData.ticket.name || '',
         description: defaultData.ticket?.description || '',
         value: String(defaultData.ticket?.value || 0),
-      })
-      if (defaultData.ticket.customerId)
-        setContact(defaultData.ticket.customerId)
-
+      });
+      if (defaultData.ticket.customerId) setContact(defaultData.ticket.customerId);
+  
       const fetchData = async () => {
         const response = await searchContacts(
           //@ts-ignore
           defaultData.ticket?.Customer?.name
-        )
-        setContactList(response)
-      }
-      fetchData()
+        );
+        setContactList(response);
+      };
+      fetchData();
     }
-  }, [defaultData])
+  }, [defaultData, form]);
 
   const onSubmit = async (values: z.infer<typeof TicketFormSchema>) => {
     if (!laneId) return

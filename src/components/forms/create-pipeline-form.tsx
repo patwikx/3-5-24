@@ -26,7 +26,6 @@ import Loading from '../global/loading'
 import { CreatePipelineFormSchema } from '@/lib/types'
 import {
   saveActivityLogsNotification,
-  upsertFunnel,
   upsertPipeline,
 } from '@/lib/queries'
 import { v4 } from 'uuid'
@@ -60,7 +59,7 @@ const CreatePipelineForm: React.FC<CreatePipelineFormProps> = ({
         name: defaultData.name || '',
       })
     }
-  }, [defaultData])
+  }, [defaultData, form]);
 
   const isLoading = form.formState.isLoading
 

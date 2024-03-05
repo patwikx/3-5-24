@@ -46,9 +46,9 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId }) => {
 
   useEffect(() => {
     if (data.contact) {
-      form.reset(data.contact)
+      form.reset(data.contact);
     }
-  }, [data, form.reset])
+  }, [data, form]);
 
   const isLoading = form.formState.isLoading
 

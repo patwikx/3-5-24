@@ -27,7 +27,6 @@ import { LaneFormSchema } from '@/lib/types'
 import {
   getPipelineDetails,
   saveActivityLogsNotification,
-  upsertFunnel,
   upsertLane,
   upsertPipeline,
 } from '@/lib/queries'
@@ -60,9 +59,9 @@ const LaneForm: React.FC<CreateLaneFormProps> = ({
     if (defaultData) {
       form.reset({
         name: defaultData.name || '',
-      })
+      });
     }
-  }, [defaultData])
+  }, [defaultData, form]);
 
   const isLoading = form.formState.isLoading
 
