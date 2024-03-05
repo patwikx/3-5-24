@@ -36,8 +36,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Copy, Edit, MoreHorizontal, Trash } from 'lucide-react'
 import { useModal } from '@/providers/modal-provider'
-import UserDetails from '@/components/forms/user-details'
-
 import { deleteUser, getUser } from '@/lib/queries'
 import { useToast } from '@/components/ui/use-toast'
 import { useState } from 'react'
@@ -192,11 +190,7 @@ const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
                   subheading="You can change permissions only when the user has an owned subaccount"
                   title="Edit User Details"
                 >
-                  <UserDetails
-                    type="agency"
-                    id={rowData?.Agency?.id || null}
-                    subAccounts={rowData?.Agency?.SubAccount}
-                  />
+                  <div></div>
                 </CustomModal>,
                 async () => {
                   return { user: await getUser(rowData?.id) }

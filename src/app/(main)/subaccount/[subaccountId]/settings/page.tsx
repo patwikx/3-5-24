@@ -1,5 +1,4 @@
 import SubAccountDetails from '@/components/forms/subaccount-details'
-import UserDetails from '@/components/forms/user-details'
 import BlurPage from '@/components/global/blur-page'
 import { db } from '@/lib/db'
 import { currentUser } from '@clerk/nextjs'
@@ -41,12 +40,7 @@ const SubaccountSettingPage = async ({ params }: Props) => {
           userId={userDetails.id}
           userName={userDetails.name}
         />
-        <UserDetails
-          type="subaccount"
-          id={params.subaccountId}
-          subAccounts={subAccounts}
-          userData={userDetails}
-        />
+        <div></div>
       </div>
     </BlurPage>
   )
