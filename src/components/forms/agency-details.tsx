@@ -389,7 +389,7 @@ const AgencyDetails = ({ data }: Props) => {
                   <FormLabel>Create a Goal.</FormLabel>
                   <FormDescription>
                     ✨ Create a goal for your site. As your business grows,
-                    your goals grow too so don't forget to set the bar higher!
+                    your goals grow too so dont forget to set the bar higher!
                   </FormDescription>
                   <NumberInput
                     defaultValue={data?.goal}

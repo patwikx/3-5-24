@@ -104,15 +104,16 @@ const UserDetails = ({ id, type, subAccounts, userData }: Props) => {
     },
   })
 
-  useEffect(() => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  if (!data.user) return;
+  const getPermissions = async () => {
     if (!data.user) return;
-    const getPermissions = async () => {
-      if (!data.user) return;
-      const permission = await getUserPermissions(data.user.id);
-      setSubAccountsPermissions(permission);
-    };
-    getPermissions();
-  }, [data, form]);
+    const permission = await getUserPermissions(data.user.id);
+    setSubAccountsPermissions(permission);
+  };
+  getPermissions();
+}, [data, form]);
 
   useEffect(() => {
     if (data.user) {
