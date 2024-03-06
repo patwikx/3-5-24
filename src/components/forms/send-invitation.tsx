@@ -123,12 +123,9 @@ const SendInvitation: React.FC<SendInvitationProps> = ({ agencyId }) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="AGENCY_ADMIN">Agency Admin</SelectItem>
-                      <SelectItem value="SUBACCOUNT_USER">
+                      <SelectItem value="Admin">Agency Admin</SelectItem>
+                      <SelectItem value="User">
                         Sub Account User
-                      </SelectItem>
-                      <SelectItem value="SUBACCOUNT_GUEST">
-                        Sub Account Guest
                       </SelectItem>
                     </SelectContent>
                   </Select>
