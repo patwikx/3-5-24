@@ -233,7 +233,7 @@ const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
               toast({
                 title: 'Deleted User',
                 description:
-                  'The user has been deleted from this agency they no longer have access to the agency',
+                  'The user has been deleted from this company.',
               })
               setLoading(false)
               router.refresh()
