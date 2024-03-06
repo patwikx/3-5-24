@@ -85,7 +85,7 @@ export const columns: ColumnDef<UsersWithAgencySubAccountPermissionsSidebarOptio
       accessorKey: 'SubAccount',
       header: 'Owned Accounts',
       cell: ({ row }) => {
-        const isAgencyOwner = row.getValue('role') === 'AGENCY_OWNER'
+        const isAgencyOwner = row.getValue('role') === 'Admin'
         const ownedAccounts = row.original?.Permissions.filter(
           (per) => per.access
         )
@@ -128,10 +128,9 @@ export const columns: ColumnDef<UsersWithAgencySubAccountPermissionsSidebarOptio
         return (
           <Badge
             className={clsx({
-              'bg-emerald-500': role === 'AGENCY_OWNER',
-              'bg-orange-400': role === 'AGENCY_ADMIN',
-              'bg-primary': role === 'SUBACCOUNT_USER',
-              'bg-muted': role === 'SUBACCOUNT_GUEST',
+              'bg-emerald-500': role === 'Admin',
+              'bg-orange-400': role === 'User',
+              'bg-primary': role === 'Tenant',
             })}
           >
             {role}
