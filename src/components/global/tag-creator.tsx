@@ -79,7 +79,7 @@ const TagCreator = ({ getSelectedTags, subAccountId, defaultTags }: Props) => {
     if (!selectedColor) {
       toast({
         variant: 'destructive',
-        title: 'Please Select a color',
+        title: 'Please select a color',
       })
       return
     }
@@ -109,7 +109,8 @@ const TagCreator = ({ getSelectedTags, subAccountId, defaultTags }: Props) => {
     } catch (error) {
       toast({
         variant: 'destructive',
-        title: 'Could not create tag',
+        title: 'Something went wrong.',
+        description: 'Could not create tag',
       })
     }
   }

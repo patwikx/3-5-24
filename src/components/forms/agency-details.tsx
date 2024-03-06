@@ -144,7 +144,7 @@ const AgencyDetails = ({ data }: Props) => {
         goal: 5,
       })
       toast({
-        title: 'Created Agency',
+        title: 'Created Company',
       })
 
       return router.refresh()
@@ -154,8 +154,8 @@ const AgencyDetails = ({ data }: Props) => {
       console.log(error)
       toast({
         variant: 'destructive',
-        title: 'Oppse!',
-        description: 'could not create your agency',
+        title: 'Something went wrong.',
+        description: 'could not create your company.',
       })
     }
   }
@@ -166,8 +166,8 @@ const AgencyDetails = ({ data }: Props) => {
     try {
       const response = await deleteAgency(data.id)
       toast({
-        title: 'Deleted Agency',
-        description: 'Deleted your site and all user data.',
+        title: 'Deleted company.',
+        description: 'Deleted your company and all user data.',
       })
       router.refresh()
     } catch (error) {
@@ -175,7 +175,7 @@ const AgencyDetails = ({ data }: Props) => {
       toast({
         variant: 'destructive',
         title: 'Operation failed.',
-        description: 'could not delete your site. ',
+        description: 'could not delete your company. ',
       })
     }
     setDeletingAgency(false)
@@ -185,10 +185,10 @@ const AgencyDetails = ({ data }: Props) => {
     <AlertDialog>
       <Card className="w-full">
         <CardHeader>
-          <CardTitle>Site Information</CardTitle>
+          <CardTitle>Company Information</CardTitle>
           <CardDescription>
-            Lets create a site for you business. You can edit site settings
-            later from the site settings tab.
+            Lets create a site for you business. You can edit company information
+            later from the company settings tab.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -203,7 +203,7 @@ const AgencyDetails = ({ data }: Props) => {
                 name="agencyLogo"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Site Logo</FormLabel>
+                    <FormLabel>Company Logo</FormLabel>
                     <FormControl>
                       <FileUpload
                         apiEndpoint="agencyLogo"
@@ -222,10 +222,10 @@ const AgencyDetails = ({ data }: Props) => {
                   name="name"
                   render={({ field }) => (
                     <FormItem className="flex-1">
-                      <FormLabel>Site Name</FormLabel>
+                      <FormLabel>Company Name</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Your site name"
+                          placeholder="Your company name"
                           {...field}
                         />
                       </FormControl>
@@ -238,7 +238,7 @@ const AgencyDetails = ({ data }: Props) => {
                   name="companyEmail"
                   render={({ field }) => (
                     <FormItem className="flex-1">
-                      <FormLabel>Site Admin Email</FormLabel>
+                      <FormLabel>Company Admin Email</FormLabel>
                       <FormControl>
                         <Input
                           readOnly
@@ -258,7 +258,7 @@ const AgencyDetails = ({ data }: Props) => {
                   name="companyPhone"
                   render={({ field }) => (
                     <FormItem className="flex-1">
-                      <FormLabel>Site Contact Number</FormLabel>
+                      <FormLabel>Company Contact Details</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Phone"
@@ -279,7 +279,7 @@ const AgencyDetails = ({ data }: Props) => {
                   return (
                     <FormItem className="flex flex-row items-center justify-between rounded-lg border gap-4 p-4">
                       <div>
-                        <FormLabel>White label Site</FormLabel>
+                        <FormLabel>White label Company</FormLabel>
                         <FormDescription>
                           Turning on white label mode will show your site logo
                           to all users by default. You can overwrite this
@@ -303,7 +303,7 @@ const AgencyDetails = ({ data }: Props) => {
                 name="address"
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>Address</FormLabel>
+                    <FormLabel>Company Address</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="123 st..."
@@ -388,7 +388,7 @@ const AgencyDetails = ({ data }: Props) => {
                 <div className="flex flex-col gap-2">
                   <FormLabel>Create a Goal.</FormLabel>
                   <FormDescription>
-                    ✨ Create a goal for your site. As your business grows,
+                    ✨ Create a goal for your company. As your business grows,
                     your goals grow too so dont forget to set the bar higher!
                   </FormDescription>
                   <NumberInput
@@ -398,14 +398,14 @@ const AgencyDetails = ({ data }: Props) => {
                       await updateAgencyDetails(data.id, { goal: val })
                       await saveActivityLogsNotification({
                         agencyId: data.id,
-                        description: `Updated the site goal to | ${val} user`,
+                        description: `Updated the company goal to | ${val} user`,
                         subaccountId: undefined,
                       })
                       router.refresh()
                     }}
                     min={1}
                     className="bg-background !border !border-input"
-                    placeholder="Site Goal"
+                    placeholder="Company Goal"
                   />
                 </div>
               )}
@@ -413,7 +413,7 @@ const AgencyDetails = ({ data }: Props) => {
                 type="submit"
                 disabled={isLoading}
               >
-                {isLoading ? <Loading /> : 'Save Site Information'}
+                {isLoading ? <Loading /> : 'Save Company Information'}
               </Button>
             </form>
           </Form>
@@ -424,8 +424,8 @@ const AgencyDetails = ({ data }: Props) => {
                 <div>Danger Zone</div>
               </div>
               <div className="text-muted-foreground">
-                Deleting your site cannot be undone. This will also delete all
-                user data and all data related to your site. Users will no longer have access to funnels, contacts etc.
+                Deleting your company cannot be undone. This will also delete all
+                user data and all data related to your company. Users will no longer have access to tenats, billing, etc.
               </div>
               <AlertDialogTrigger
                 disabled={isLoading || deletingAgency}
@@ -441,8 +441,7 @@ const AgencyDetails = ({ data }: Props) => {
                 Are you sure?
               </AlertDialogTitle>
               <AlertDialogDescription className="text-left">
-                This action cannot be undone. This will permanently delete the
-                Site and all related users.
+                This action cannot be undone. This will permanently delete company and all user data.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter className="flex items-center">

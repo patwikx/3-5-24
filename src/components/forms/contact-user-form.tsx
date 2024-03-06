@@ -75,7 +75,7 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId }) => {
     } catch (error) {
       toast({
         variant: 'destructive',
-        title: 'Oppse!',
+        title: 'Something went wrong.',
         description: 'Could not save funnel details',
       })
     }
@@ -84,9 +84,9 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId }) => {
   return (
     <Card className=" w-full">
       <CardHeader>
-        <CardTitle>Contact Info</CardTitle>
+        <CardTitle>User Info</CardTitle>
         <CardDescription>
-          You can assign tickets to contacts and set a value for each contact in
+          You can assign tickets to user and set a value for each users in
           the ticket.
         </CardDescription>
       </CardHeader>
@@ -140,7 +140,7 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId }) => {
               {form.formState.isSubmitting ? (
                 <Loading />
               ) : (
-                'Save Contact Details!'
+                'Save User Details!'
               )}
             </Button>
           </form>

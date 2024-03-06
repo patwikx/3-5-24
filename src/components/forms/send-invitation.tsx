@@ -67,7 +67,7 @@ const SendInvitation: React.FC<SendInvitationProps> = ({ agencyId }) => {
       console.log(error)
       toast({
         variant: 'destructive',
-        title: 'Oppse!',
+        title: 'Something went wrong.',
         description: 'Could not send invitation',
       })
     }

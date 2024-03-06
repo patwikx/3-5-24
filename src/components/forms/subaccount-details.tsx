@@ -103,13 +103,13 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
       if (!response) throw new Error('No response from server')
       await saveActivityLogsNotification({
         agencyId: response.agencyId,
-        description: `${userName} | updated sub account | ${response.name}`,
+        description: `${userName} | updated tenant | ${response.name}`,
         subaccountId: response.id,
       })
 
       toast({
-        title: 'Subaccount details saved',
-        description: 'Successfully saved your subaccount details.',
+        title: 'Tenant details saved',
+        description: 'Successfully saved your tenant details.',
       })
 
       setClose()
@@ -117,8 +117,8 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
     } catch (error) {
       toast({
         variant: 'destructive',
-        title: 'Oppse!',
-        description: 'Could not save sub account details.',
+        title: 'Something went wrong.',
+        description: 'Could not save tenant details.',
       })
     }
   }
@@ -134,7 +134,7 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Sub Account Information</CardTitle>
+        <CardTitle>Tenant Information</CardTitle>
         <CardDescription>Please enter business details</CardDescription>
       </CardHeader>
       <CardContent>
@@ -149,7 +149,7 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
               name="subAccountLogo"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Account Logo</FormLabel>
+                  <FormLabel>Tenant Logo</FormLabel>
                   <FormControl>
                     <FileUpload
                       apiEndpoint="subaccountLogo"
@@ -168,11 +168,11 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
                 name="name"
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>Account Name</FormLabel>
+                    <FormLabel>Tenant Name</FormLabel>
                     <FormControl>
                       <Input
                         required
-                        placeholder="Your agency name"
+                        placeholder="Tenant name"
                         {...field}
                       />
                     </FormControl>
@@ -205,7 +205,7 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
                 name="companyPhone"
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>Acount Phone Number</FormLabel>
+                    <FormLabel>Tenant Contact Details</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Phone"
@@ -262,11 +262,11 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
                 name="state"
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>State</FormLabel>
+                    <FormLabel>Province</FormLabel>
                     <FormControl>
                       <Input
                         required
-                        placeholder="State"
+                        placeholder="Province"
                         {...field}
                       />
                     </FormControl>
@@ -280,11 +280,11 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
                 name="zipCode"
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel>Zipcpde</FormLabel>
+                    <FormLabel>Zip Code</FormLabel>
                     <FormControl>
                       <Input
                         required
-                        placeholder="Zipcode"
+                        placeholder="Zip Code"
                         {...field}
                       />
                     </FormControl>
@@ -315,7 +315,7 @@ const SubAccountDetails: React.FC<SubAccountDetailsProps> = ({
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? <Loading /> : 'Save Account Information'}
+              {isLoading ? <Loading /> : 'Save Tenant Information'}
             </Button>
           </form>
         </Form>

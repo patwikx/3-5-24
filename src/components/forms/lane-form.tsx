@@ -93,7 +93,7 @@ const LaneForm: React.FC<CreateLaneFormProps> = ({
     } catch (error) {
       toast({
         variant: 'destructive',
-        title: 'Oppse!',
+        title: 'Someting went wrong.',
         description: 'Could not save pipeline details',
       })
     }

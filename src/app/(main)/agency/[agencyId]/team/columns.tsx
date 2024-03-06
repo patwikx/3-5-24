@@ -83,7 +83,7 @@ export const columns: ColumnDef<UsersWithAgencySubAccountPermissionsSidebarOptio
 
     {
       accessorKey: 'SubAccount',
-      header: 'Owned Accounts',
+      header: 'Company',
       cell: ({ row }) => {
         const isAgencyOwner = row.getValue('role') === 'Admin'
         const ownedAccounts = row.original?.Permissions.filter(

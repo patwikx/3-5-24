@@ -33,7 +33,9 @@ const Page = async ({
   let net = 0
   let potentialIncome = 0
   let closingRate = 0
+  const currentDate = new Date();
   const currentYear = new Date().getFullYear()
+  const currentMonth = currentDate.getMonth() + 1; 
   const startDate = new Date(`${currentYear}-01-01T00:00:00Z`).getTime() / 1000
   const endDate = new Date(`${currentYear}-12-31T23:59:59Z`).getTime() / 1000
 
@@ -84,17 +86,17 @@ const Page = async ({
                 {net ? `${currency} ${net.toFixed(2)}` : `0.00`}
               </CardTitle>
               <small className="text-xs text-muted-foreground">
-                For the year {currentYear}
+                For the month of {currentMonth}
               </small>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">
-              Total revenue for this year.
+              Total revenue for this month.
             </CardContent>
             <DollarSign className="absolute right-4 top-4 text-muted-foreground" />
           </Card>
           <Card className="flex-1 relative">
             <CardHeader>
-              <CardDescription>Potential Income</CardDescription>
+              <CardDescription>Annual Income</CardDescription>
               <CardTitle className="text-4xl">
                 {potentialIncome
                   ? `${currency} ${potentialIncome.toFixed(2)}`
@@ -105,17 +107,17 @@ const Page = async ({
               </small>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">
-              This is how much you can close.
+              This is your sales revenue for this year.
             </CardContent>
             <DollarSign className="absolute right-4 top-4 text-muted-foreground" />
           </Card>
           <Card className="flex-1 relative">
             <CardHeader>
-              <CardDescription>Active Clients</CardDescription>
+              <CardDescription>Active Tenants</CardDescription>
               <CardTitle className="text-4xl">{subaccounts.length}</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">
-              Total number of clients.
+              Total number of tenants.
             </CardContent>
             <Contact2 className="absolute right-4 top-4 text-muted-foreground" />
           </Card>
