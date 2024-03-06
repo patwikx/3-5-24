@@ -200,7 +200,7 @@ const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
             <Edit size={15} />
             Edit Details
           </DropdownMenuItem>
-          {rowData.role !== 'AGENCY_OWNER' && (
+          {rowData.role !== 'Admin' && (
             <AlertDialogTrigger asChild>
               <DropdownMenuItem
                 className="flex gap-2"
