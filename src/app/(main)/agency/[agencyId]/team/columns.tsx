@@ -89,7 +89,7 @@ export const columns: ColumnDef<UsersWithAgencySubAccountPermissionsSidebarOptio
         const ownedAccounts = row.original?.Permissions.filter(
           (per) => per.access
         )
-
+          {/*
         if (isAgencyOwner)
           return (
             <div className="flex flex-col items-start">
@@ -117,7 +117,7 @@ export const columns: ColumnDef<UsersWithAgencySubAccountPermissionsSidebarOptio
               )}
             </div>
           </div>
-        )
+              ) */}
       },
     },
     {
