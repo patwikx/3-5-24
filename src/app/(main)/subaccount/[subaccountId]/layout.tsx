@@ -41,8 +41,8 @@ const SubaccountLayout = async ({ children, params }: Props) => {
     const allNotifications = await getNotificationAndUser(agencyId)
 
     if (
-      user.privateMetadata.role === 'AGENCY_ADMIN' ||
-      user.privateMetadata.role === 'AGENCY_OWNER'
+      user.privateMetadata.role === 'Admin' ||
+      user.privateMetadata.role === 'User'
     ) {
       notifications = allNotifications
     } else {

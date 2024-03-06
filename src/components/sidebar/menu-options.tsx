@@ -128,8 +128,8 @@ const MenuOptions = ({
                 <CommandInput placeholder="Search Accounts..." />
                 <CommandList className="pb-16">
                   <CommandEmpty> No results found</CommandEmpty>
-                  {(user?.role === 'AGENCY_OWNER' ||
-                    user?.role === 'AGENCY_ADMIN') &&
+                  {(user?.role === 'Admin' ||
+                    user?.role === 'User') &&
                     user?.Agency && (
                       <CommandGroup heading="Agency">
                         <CommandItem className="!bg-transparent my-2 text-primary broder-[1px] border-border p-2 rounded-md hover:!bg-muted cursor-pointer transition-all">
@@ -231,8 +231,8 @@ const MenuOptions = ({
                       : 'No Accounts'}
                   </CommandGroup>
                 </CommandList>
-                {(user?.role === 'AGENCY_OWNER' ||
-                  user?.role === 'AGENCY_ADMIN') && (
+                {(user?.role === 'Admin' ||
+                  user?.role === 'User') && (
                   <SheetClose>
                     <Button
                       className="w-full flex gap-2"

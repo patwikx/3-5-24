@@ -39,7 +39,7 @@ const SendInvitation: React.FC<SendInvitationProps> = ({ agencyId }) => {
   const { toast } = useToast()
   const userDataSchema = z.object({
     email: z.string().email(),
-    role: z.enum(['AGENCY_ADMIN', 'SUBACCOUNT_USER', 'SUBACCOUNT_GUEST']),
+    role: z.enum(['User', 'Admin', 'Tenant']),
   })
 
   const form = useForm<z.infer<typeof userDataSchema>>({
@@ -47,7 +47,7 @@ const SendInvitation: React.FC<SendInvitationProps> = ({ agencyId }) => {
     mode: 'onChange',
     defaultValues: {
       email: '',
-      role: 'SUBACCOUNT_USER',
+      role: 'Tenant',
     },
   })
 

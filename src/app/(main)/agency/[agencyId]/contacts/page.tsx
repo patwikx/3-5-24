@@ -51,7 +51,7 @@ const ContactPage = async ({ params }: Props) => {
     if (!tickets || !tickets.length) return '$0.00'
     const amt = new Intl.NumberFormat(undefined, {
       style: 'currency',
-      currency: 'USD',
+      currency: 'PHP',
     })
 
     const laneAmt = tickets.reduce(

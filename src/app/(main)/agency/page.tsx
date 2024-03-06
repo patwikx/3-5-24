@@ -16,9 +16,9 @@ const Page = async ({
   //get the users details
   const user = await getAuthUserDetails()
   if (agencyId) {
-    if (user?.role === 'SUBACCOUNT_GUEST' || user?.role === 'SUBACCOUNT_USER') {
+    if (user?.role === 'Tenant') {
       return redirect('/subaccount')
-    } else if (user?.role === 'AGENCY_OWNER' || user?.role === 'AGENCY_ADMIN') {
+    } else if (user?.role === 'Admin' || user?.role === 'User') {
       if (searchParams.plan) {
         return redirect(`/agency/${agencyId}/billing?plan=${searchParams.plan}`)
       }

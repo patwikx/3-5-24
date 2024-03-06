@@ -134,7 +134,7 @@ export const saveActivityLogsNotification = async ({
 }
 
 export const createTeamUser = async (agencyId: string, user: User) => {
-  if (user.role === 'AGENCY_OWNER') return null
+  if (user.role === 'Admin') return null
   const response = await db.user.create({ data: { ...user } })
   return response
 }
@@ -169,7 +169,7 @@ export const verifyAndAcceptInvitation = async () => {
     if (userDetails) {
       await clerkClient.users.updateUserMetadata(user.id, {
         privateMetadata: {
-          role: userDetails.role || 'SUBACCOUNT_USER',
+          role: userDetails.role || 'Tenant',
         },
       })
 
@@ -219,13 +219,13 @@ export const initUser = async (newUser: Partial<User>) => {
       avatarUrl: user.imageUrl,
       email: user.emailAddresses[0].emailAddress,
       name: `${user.firstName} ${user.lastName}`,
-      role: newUser.role || 'SUBACCOUNT_USER',
+      role: newUser.role || 'Tenant',
     },
   })
 
   await clerkClient.users.updateUserMetadata(user.id, {
     privateMetadata: {
-      role: newUser.role || 'SUBACCOUNT_USER',
+      role: newUser.role || 'Tenant',
     },
   })
 
@@ -324,7 +324,7 @@ export const upsertSubAccount = async (subAccount: SubAccount) => {
       Agency: {
         id: subAccount.agencyId,
       },
-      role: 'AGENCY_OWNER',
+      role: 'Admin',
     },
   })
   if (!agencyOwner) return console.log('🔴Erorr could not create subaccount')
@@ -409,7 +409,7 @@ export const updateUser = async (user: Partial<User>) => {
 
   await clerkClient.users.updateUserMetadata(response.id, {
     privateMetadata: {
-      role: user.role || 'SUBACCOUNT_USER',
+      role: user.role || 'Tenant',
     },
   })
 
@@ -692,7 +692,7 @@ export const getSubAccountTeamMembers = async (subaccountId: string) => {
           },
         },
       },
-      role: 'SUBACCOUNT_USER',
+      role: 'Tenant',
       Permissions: {
         some: {
           subAccountId: subaccountId,

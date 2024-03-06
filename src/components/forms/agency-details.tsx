@@ -124,7 +124,7 @@ const AgencyDetails = ({ data }: Props) => {
       }
 
       newUserData = await initUser({ 
-        role: 'AGENCY_OWNER' })
+        role: 'Admin' })
       if (!data?.id) {} {
        await upsertAgency({
         id: data?.id ? data.id : v4(),

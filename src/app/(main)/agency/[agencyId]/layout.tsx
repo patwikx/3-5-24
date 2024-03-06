@@ -28,8 +28,8 @@ const layout = async ({ children, params }: Props) => {
   }
 
   if (
-    user.privateMetadata.role !== 'AGENCY_OWNER' &&
-    user.privateMetadata.role !== 'AGENCY_ADMIN'
+    user.privateMetadata.role !== 'Admin' &&
+    user.privateMetadata.role !== 'User'
   )
     return <Unauthorized />
 
