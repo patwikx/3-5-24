@@ -55,7 +55,7 @@ const PipelineSettings = ({
                       title: 'Deleted',
                       description: 'Pipeline is deleted',
                     })
-                    router.replace(`/subaccount/${subaccountId}/pipelines`)
+                    router.replace(`/agency/${subaccountId}/pipelines`)
                   } catch (error) {
                     toast({
                       variant: 'destructive',
